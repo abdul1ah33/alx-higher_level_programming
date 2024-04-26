@@ -23,7 +23,7 @@ def matrix_divided(matrix, div):
                         "integers/floats")
     for rows in matrix:
         for ele in rows:
-            if (not all(isinstance(ele, int) or not isinstance(ele, float))):
+            if (not isinstance(ele, int) or not isinstance(ele, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
 
