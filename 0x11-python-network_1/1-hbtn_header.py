@@ -15,8 +15,9 @@ def main(argv):
     """
     url = argv
     with urllib.request.urlopen(url) as response:
-        headers = response.info()
-        print(headers['X-Request-Id'])
+        requested_id = response.headers.get('X-Request-Id')
+        print(requested_id)
 
 if __name__ == "__main__":
     main(argv[1])
+
