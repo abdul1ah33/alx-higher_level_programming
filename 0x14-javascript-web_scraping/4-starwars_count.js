@@ -10,21 +10,13 @@ request.get(url, (error, response, body) => {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    const films = data.results;
-
-    for (let i = 0; i < films.length; i++) {
-      const film = films[i];
-      const characters = film.characters;
-
-      for (let j = 0; j < characters.length; j++) {
-        const character = characters[j];
-
+    data.results.forEach((film) => {
+      film.characters.forEach((character) => {
         if (character.includes(characterId)) {
           count += 1;
         }
-      }
-    }
-
+      });
+    });
     console.log(count);
   }
 });
